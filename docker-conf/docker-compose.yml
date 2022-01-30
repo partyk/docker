@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  php:
+    container_name: ${NAME_PROJECT}-php
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+      # target: {NAME_PROJECT}-php
+      args:
+        - DOCKER_PHP_USER=${DOCKER_PHP_USER}
+        - DOCKER_PHP_USER_UID=${DOCKER_PHP_USER_UID}
+    ports:
+      - "8080:80"
+    volumes:
+      - ../webroot:/var/www/html
+    env_file:
+      - .env
+  database:
+    container_name: ${NAME_PROJECT}-mariadb
+    image: mariadb:10.1.37
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    env_file:
+      - .env
+  adminer:
+    container_name: ${NAME_PROJECT}-adminer
+    image: adminer:4.7.2
+    ports:
+      - "8081:8080"
+    depends_on:
+      - database
+    env_file:
+      - .env

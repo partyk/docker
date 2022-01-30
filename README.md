@@ -3,7 +3,7 @@
 ## link
 - ```https://hub.docker.com/``` oficialní image
 
-## ```docker``` základní příkazy
+## docker základní příkazy
 
 - ```docker ps``` výpis běžících kontejnerů
 - ```docker ps --all``` výpis všech kontejnerů
@@ -14,7 +14,11 @@
 
 ```https://www.learn2code.sk/aplikacia/skupiny#/docker-pre-zaciatocnikov/chapters/07-cli-zakladne-prikazy-video```
 
-## ```docker``` vytvoření image
+## docker container
+- ```docker exec -it NAZEV_KONTEJNERU /bin/bash``` Vstúpiť do kontextu kontajnera web s Bash shell
+
+
+## docker vytvoření image
 
 ### Základné Dockerfile inštrukcie:
 
